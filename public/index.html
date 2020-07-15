@@ -7,10 +7,10 @@
   <meta name="theme-color" content="#317EFB">
   <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
 
-  <link rel="manifest" href="js/manifest.json">
+  <link rel="manifest" href="./js/manifest.json">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
 
   <title>Budget Tracker</title>
 </head>
@@ -43,7 +43,16 @@
     <canvas id="myChart"></canvas>
   </div>
 
-  <script src="js/chart.js"></script>
-  <script src="js/index.js"></script>
+  <script src="./js/chart.js"></script>
+  <script src="./js/index.js"></script>
+  <script>
+    (function() {
+      if("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./js/service-worker.js")
+          .then(() => console.log("Service Worker register successfully."))
+          .catch(error => console.log("Service Worker registration failed: ", error));
+      }
+    })();
+  </script>
 </body>
 </html>
