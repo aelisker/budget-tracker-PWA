@@ -3,7 +3,7 @@
   "short_name": "Ledger",
   "theme_color": "#ffffff",
   "background_color": "#85bb65",
-  "start_url": "../.",
+  "start_url": "/",
   "display": "standalone",
   "icons": [
     {

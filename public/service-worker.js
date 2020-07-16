@@ -1,8 +1,9 @@
 const FILES_TO_CACHE = [
-  "../index.html",
-  "../css/style.css",
-  "./index.js",
-  "./chart.js",
+  "./",
+  "./index.html",
+  "./css/styles.css",
+  "./js/index.js",
+  "./js/chart.js",
 ];
 const APP_PREFIX = 'BudgetTracker-';
 const VERSION = 'version_01';
@@ -31,6 +32,7 @@ self.addEventListener('activate', function(e) {
           return caches.delete(keyList[i]);
         }
       }))
+        .catch(err => console.log(err));
     })
   )
 });
@@ -51,3 +53,19 @@ self.addEventListener('fetch', function(e) {
     })
   )
 })
+
+self.onerror = function(message) {
+  console.log(message);
+};
+
+self.addEventListener('install', (event) => {
+  console.log('Inside the install handler:', event);
+});
+
+self.addEventListener('activate', (event) => {
+  console.log('Inside the activate handler:', event);
+});
+
+self.addEventListener(fetch, (event) => {
+  console.log('Inside the fetch handler:', event);
+});
